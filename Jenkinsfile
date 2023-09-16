@@ -1,6 +1,11 @@
 pipeline {
     agent any
     tools { nodejs "node" }
+    environment{
+        imageName = "reactJenkins/react-app"
+        registryCredential = "ayush8771"
+        dockerImage = ""
+    }
     stages {
         stage("Install Dependencies"){
             steps{
@@ -13,5 +18,22 @@ pipeline {
         //         bat 'npm test'
         //     }
         // }
+
+         stage("Building Image"){
+            steps {
+                script {
+                    dockerImage = docker.build imageName
+                }
+            }
+        }
+
+        stage("Deploy Image"){
+            steps {
+                script {
+                    docker.withRegistry("https://registry.hub.docker.com", 'dockerhub-creds')
+                        dockerImage.push("${env.BUILD_NUMBER}")
+                }
+            }
+        }
     }
 }
