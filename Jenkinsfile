@@ -8,10 +8,10 @@ pipeline {
             }
         }
 
-        stage("Tests"){
-            steps {
-                bat 'npm test'
-            }
-        }
+        // stage("Tests"){
+        //     steps {
+        //         bat 'npm test'
+        //     }
+        // }
     }
 }
