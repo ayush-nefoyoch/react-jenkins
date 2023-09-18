@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-        Edit and save to reload.
+        Edit and save to reload. Docker
         </p>
         <a
           className="App-link"
@@ -24,3 +24,11 @@ function App() {
 }
 
 export default App;
+
+// without docker compose, use this command
+// I have run this in terminal -> docker run -d -p 3000:3000 --name jenkns-react --rm ayush8771/react-jenkins-react-app 
+// it will create container inyour local docker and run on localhost:3000
+
+// with docker-compose - used to resolve issue for using same port
+// docker-compose up -d
+// docker-compose down

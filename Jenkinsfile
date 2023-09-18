@@ -36,5 +36,13 @@ pipeline {
                 }
             }
         }
+
+        stage("Run"){
+            steps {
+                script {
+                    bat 'docker-compose down && docker-compose up -d'
+                }
+            }
+        }
     }
 }

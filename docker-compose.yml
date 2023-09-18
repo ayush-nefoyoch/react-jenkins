@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  web:
+    image: ayush8771/react-jenkins-react-app:latest
+    ports:
+      - '3000:3000'
+    container_name: jenkns-react
