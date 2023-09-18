@@ -7,18 +7,6 @@ pipeline {
         dockerImage = ""
     }
     stages {
-        stage("Install Dependencies"){
-            steps{
-                bat 'npm install'
-            }
-        }
-
-        // stage("Tests"){
-        //     steps {
-        //         bat 'npm test'
-        //     }
-        // }
-
          stage("Building Image"){
             steps {
                 script {
